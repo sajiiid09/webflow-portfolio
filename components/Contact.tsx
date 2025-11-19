@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 
-const FORM_ENDPOINT = "https://formspree.io/f/mayrzgyv"; // replace with your Formspree ID when ready
+const FORM_ENDPOINT = "https://formspree.io/f/manvqayj"; // replace with your Formspree ID when ready
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
