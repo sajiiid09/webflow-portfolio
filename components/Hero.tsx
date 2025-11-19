@@ -1,11 +1,30 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Spline from "@splinetool/react-spline";
+import Spline from "@splinetool/react-spline/next";
 
-const SPLINE_SCENE_URL = "https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode";
+const SPLINE_SCENE_URL = "https://prod.spline.design/dpBCmXsVUJ-gT49T/scene.splinecode";
 
 export function Hero() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const maxScroll = window.innerHeight;
+      const progress = Math.min(window.scrollY / maxScroll, 1);
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const translateY = scrollProgress * 18;
+  const rotate = scrollProgress * 3;
+  const scale = 1 - scrollProgress * 0.03;
+
   return (
     <section id="home" className="relative flex min-h-[90vh] items-center overflow-hidden">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 pt-28 md:flex-row md:items-center">
@@ -36,19 +55,18 @@ export function Hero() {
             Explore My Work
           </motion.a>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="flex-1"
-        >
-          <div className="relative mx-auto h-[420px] w-full max-w-lg rounded-[32px] border border-white/40 bg-white/30 p-2 shadow-[0_40px_120px_-60px_rgba(15,23,42,0.6)] backdrop-blur">
-            <div className="h-full w-full overflow-hidden rounded-[28px] bg-gradient-to-b from-white/70 to-slate-100/80">
-              <Spline scene={SPLINE_SCENE_URL} />
-            </div>
-          </div>
+        <div className="flex-1">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale }}
+            transition={{ duration: 0.9, delay: 0.15 }}
+            style={{ translateY, rotateX: rotate, rotateY: rotate }}
+            className="spline-hero-wrapper mx-auto max-w-xl"
+          >
+            <Spline scene={SPLINE_SCENE_URL} />
+          </motion.div>
           <p className="mt-4 text-center text-sm text-muted">A living, animated canvas powered by Spline.</p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
