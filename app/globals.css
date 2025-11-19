@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  --background: 210 60% 99%;
-  --foreground: 222 47% 11%;
-  --muted: 215 17% 45%;
-  --accent: 242 84% 65%;
+  color-scheme: dark;
+  /* Deep Navy Void Background #050a14 */
+  --background: 220 43% 5%;
+  /* Starlight White Text #f1f5f9 */
+  --foreground: 210 40% 96%;
+  /* Nebula Grey #94a3b8 */
+  --muted: 215 20% 65%;
+  /* Solar Copper/Orange #d96c2c */
+  --accent: 22 66% 51%;
 }
 
 html {
@@ -16,37 +20,43 @@ html {
 
 body {
   background-color: hsl(var(--background));
+  /* Dark Space Gradient */
   background-image:
-    radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.15), transparent 45%),
-    radial-gradient(circle at 80% 0%, rgba(45, 212, 191, 0.18), transparent 40%),
-    linear-gradient(180deg, #ffffff, #f8fafc);
+    radial-gradient(circle at 15% 50%, rgba(217, 108, 44, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(79, 70, 229, 0.05), transparent 25%);
   position: relative;
   min-height: 100vh;
   @apply text-foreground font-sans antialiased;
 }
 
+/* Noise texture overlay */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  z-index: 50;
 }
 
 a {
-  @apply text-foreground;
+  @apply text-foreground hover:text-accent transition-colors;
+}
+
+/* Apply the Orange Accent to headings */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
+
+/* Specialized Orange Gradient Text Utility */
+.text-gradient-copper {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-orange-400;
 }
 
 section {
   @apply py-16 md:py-24;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  letter-spacing: -0.02em;
 }
 
 .marquee-track {

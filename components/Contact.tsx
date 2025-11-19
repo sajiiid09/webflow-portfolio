@@ -45,7 +45,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="grid gap-12 rounded-3xl border border-slate-200 bg-white p-8 md:grid-cols-2"
+          className="grid gap-12 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur md:grid-cols-2"
         >
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-muted">Let’s Work Together</p>
@@ -70,7 +70,7 @@ export function Contact() {
                 id="name"
                 name="name"
                 required
-                className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3"
+                className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-muted"
                 placeholder="Your name"
               />
             </div>
@@ -83,7 +83,7 @@ export function Contact() {
                 type="email"
                 name="email"
                 required
-                className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3"
+                className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-muted"
                 placeholder="you@email.com"
               />
             </div>
@@ -96,7 +96,7 @@ export function Contact() {
                 name="message"
                 required
                 rows={4}
-                className="mt-2 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3"
+                className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-muted"
                 placeholder="Tell me about your project"
               />
             </div>
@@ -105,7 +105,7 @@ export function Contact() {
               whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
               whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
               disabled={status === "loading"}
-              className="w-full rounded-full border border-foreground px-4 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-full border border-accent px-4 py-3 text-sm font-semibold text-accent disabled:cursor-not-allowed disabled:opacity-60"
             >
               {status === "loading" ? "Sending..." : "Send Message"}
             </motion.button>

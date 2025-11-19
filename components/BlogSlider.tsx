@@ -16,7 +16,7 @@ export function BlogSlider() {
   };
 
   return (
-    <section id="blog" className="bg-slate-50">
+    <section id="blog">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
@@ -26,31 +26,28 @@ export function BlogSlider() {
           <div className="flex gap-3">
             <button
               onClick={() => scroll("left")}
-              className="rounded-full border border-slate-300 px-4 py-2 text-sm"
+              className="rounded-full border border-white/15 px-4 py-2 text-sm text-muted"
               aria-label="Previous blog post"
             >
               Prev
             </button>
             <button
               onClick={() => scroll("right")}
-              className="rounded-full border border-foreground px-4 py-2 text-sm font-semibold"
+              className="rounded-full border border-accent px-4 py-2 text-sm font-semibold text-accent"
               aria-label="Next blog post"
             >
               Next
             </button>
           </div>
         </div>
-        <div
-          ref={sliderRef}
-          className="mt-10 flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4"
-        >
+        <div ref={sliderRef} className="mt-10 flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
           {blogPosts.map((post) => (
             <motion.article
               key={post.title}
-              className="min-w-[280px] flex-1 snap-center rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:min-w-[360px]"
-              whileHover={{ y: -6, boxShadow: "0 20px 60px -30px rgba(15, 23, 42, 0.3)" }}
+              className="min-w-[280px] flex-1 snap-center rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card backdrop-blur md:min-w-[360px]"
+              whileHover={{ y: -6, boxShadow: "0 30px 80px -40px rgba(0, 0, 0, 0.7)" }}
             >
-              <div className="relative h-40 w-full overflow-hidden rounded-2xl bg-slate-100">
+              <div className="relative h-40 w-full overflow-hidden rounded-2xl bg-white/5">
                 <Image src={post.coverImage} alt={post.title} fill className="object-cover" sizes="(max-width: 768px) 90vw, 360px" />
               </div>
               <h3 className="mt-4 text-xl font-semibold">{post.title}</h3>

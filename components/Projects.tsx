@@ -28,10 +28,10 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              whileHover={{ y: -8, scale: 1.01, boxShadow: "0 20px 60px -30px rgba(15, 23, 42, 0.4)" }}
-              className="flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+              whileHover={{ y: -8, scale: 1.01, boxShadow: "0 30px 80px -40px rgba(0, 0, 0, 0.7)" }}
+              className="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card backdrop-blur"
             >
-              <div className="relative h-48 w-full overflow-hidden rounded-2xl bg-slate-100">
+              <div className="relative h-48 w-full overflow-hidden rounded-2xl bg-white/5">
                 <Image
                   src={project.image}
                   alt={project.imageAlt ?? `${project.title} preview`}
@@ -45,7 +45,7 @@ export function Projects() {
               <p className="mt-3 flex-1 text-muted">{project.description}</p>
               <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="rounded-full border border-slate-200 px-3 py-1">
+                  <span key={tag} className="rounded-full border border-white/15 px-3 py-1">
                     {tag}
                   </span>
                 ))}
@@ -55,7 +55,7 @@ export function Projects() {
                   href={project.liveUrl}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex-1 rounded-full border border-foreground px-4 py-2 text-center text-sm font-medium"
+                  className="flex-1 rounded-full border border-accent px-4 py-2 text-center text-sm font-medium text-accent"
                 >
                   Live Demo
                 </motion.a>
@@ -63,7 +63,7 @@ export function Projects() {
                   href={project.codeUrl}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex-1 rounded-full border border-slate-200 px-4 py-2 text-center text-sm font-medium text-muted"
+                  className="flex-1 rounded-full border border-white/15 px-4 py-2 text-center text-sm font-medium text-muted"
                 >
                   Code
                 </motion.a>

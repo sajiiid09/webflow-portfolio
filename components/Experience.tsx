@@ -27,7 +27,7 @@ export function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="rounded-3xl border border-slate-200 p-6 md:p-10"
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur md:p-10"
             >
               <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                 <div>

@@ -24,8 +24,8 @@ export function About() {
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-slate-200 p-6">
-                <p className="text-3xl font-semibold">{stat.value}</p>
+              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <p className="text-3xl font-semibold text-gradient-copper">{stat.value}</p>
                 <p className="text-sm uppercase tracking-[0.3em] text-muted">{stat.label}</p>
               </div>
             ))}

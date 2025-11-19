@@ -9,16 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "background": "hsl(var(--background))",
-        "foreground": "hsl(var(--foreground))",
-        "muted": "hsl(var(--muted))",
-        "accent": "hsl(var(--accent))"
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        muted: "hsl(var(--muted))",
+        accent: "hsl(var(--accent))"
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"]
       },
       boxShadow: {
-        card: "0 20px 50px -24px rgba(15, 23, 42, 0.5)"
+        card: "0 20px 50px -24px rgba(0, 0, 0, 0.7)"
       },
       animation: {
         marquee: "marquee 30s linear infinite"

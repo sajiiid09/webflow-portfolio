@@ -18,7 +18,7 @@ export default function HomePage() {
       <Projects />
       <BlogSlider />
       <Contact />
-      <footer className="border-t border-slate-200 py-10 text-center text-sm text-muted">
+      <footer className="border-t border-white/10 py-10 text-center text-sm text-muted">
         © {new Date().getFullYear()} Sajid Mahmud. Built with Next.js, Tailwind CSS, and Framer Motion.
       </footer>
     </main>

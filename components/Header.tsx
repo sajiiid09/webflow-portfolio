@@ -17,7 +17,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur bg-white/80 border-b border-slate-200">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/70 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <motion.a
           href="#home"
@@ -32,7 +32,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-muted hover:text-foreground transition-colors"
+              className="text-muted transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
@@ -40,21 +40,21 @@ export function Header() {
         </nav>
         <button
           onClick={() => setOpen((prev) => !prev)}
-          className="md:hidden text-sm font-medium border px-3 py-1 rounded-full"
+          className="rounded-full border border-white/20 px-3 py-1 text-sm font-medium text-foreground md:hidden"
           aria-label="Toggle navigation"
         >
           Menu
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-slate-200 bg-white">
+        <div className="border-t border-white/10 bg-background/90 md:hidden">
           <div className="mx-auto flex max-w-6xl flex-col px-6 py-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="py-2 text-muted hover:text-foreground"
+                className="py-2 text-muted transition-colors hover:text-foreground"
               >
                 {item.label}
               </a>

@@ -16,7 +16,7 @@ export function Hero() {
           className="flex-1"
         >
           <p className="text-sm uppercase tracking-[0.5em] text-muted">Creative Developer</p>
-          <h1 className="mt-6 text-4xl font-semibold leading-tight md:text-6xl">Sajid Mahmud</h1>
+          <h1 className="mt-6 text-4xl font-semibold leading-tight text-gradient-copper md:text-6xl">Sajid Mahmud</h1>
           <p className="mt-6 max-w-2xl text-lg text-muted">
             Full-stack developer crafting beautiful, functional, user-centered digital experiences from Aftabnagar, Dhaka.
           </p>
@@ -31,7 +31,7 @@ export function Hero() {
             href="#projects"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-10 inline-flex items-center rounded-full border border-foreground px-6 py-3 text-sm font-semibold"
+            className="mt-10 inline-flex items-center rounded-full border border-accent px-6 py-3 text-sm font-semibold text-accent"
           >
             Explore My Work
           </motion.a>
