@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { projects } from "@/data/content";
 
@@ -30,7 +31,16 @@ export function Projects() {
               whileHover={{ y: -8, scale: 1.01, boxShadow: "0 20px 60px -30px rgba(15, 23, 42, 0.4)" }}
               className="flex flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
             >
-              <div className="h-48 w-full rounded-2xl bg-slate-100" aria-hidden />
+              <div className="relative h-48 w-full overflow-hidden rounded-2xl bg-slate-100">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt ?? `${project.title} preview`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority={project.title === "BDTextileHub: E-Commerce Website"}
+                />
+              </div>
               <h3 className="mt-6 text-2xl font-semibold">{project.title}</h3>
               <p className="mt-3 flex-1 text-muted">{project.description}</p>
               <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted">

@@ -3,13 +3,38 @@
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 
-export function Contact() {
-  const [status, setStatus] = useState<string | null>(null);
+const FORM_ENDPOINT = "https://formspree.io/f/manvqayj"; // replace with your Formspree ID when ready
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+export function Contact() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState<string>("");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setStatus("Message sent! I’ll get back to you soon.");
-    event.currentTarget.reset();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      setStatus("loading");
+      setMessage("");
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      form.reset();
+      setStatus("success");
+      setMessage("Thanks for reaching out! I’ll get back to you shortly.");
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+      setMessage("Something went wrong. Please try again later or email me directly.");
+    }
   };
 
   return (
@@ -77,13 +102,18 @@ export function Contact() {
             </div>
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full rounded-full border border-foreground px-4 py-3 text-sm font-semibold"
+              whileHover={{ scale: status === "loading" ? 1 : 1.02 }}
+              whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
+              disabled={status === "loading"}
+              className="w-full rounded-full border border-foreground px-4 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Send Message
+              {status === "loading" ? "Sending..." : "Send Message"}
             </motion.button>
-            {status && <p className="text-sm text-green-600">{status}</p>}
+            {message && (
+              <p className={`text-sm ${status === "error" ? "text-red-600" : "text-green-600"}`} aria-live="polite">
+                {message}
+              </p>
+            )}
           </form>
         </motion.div>
       </div>

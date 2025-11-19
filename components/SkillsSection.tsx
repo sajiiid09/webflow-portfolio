@@ -2,6 +2,36 @@
 
 import { motion } from "framer-motion";
 import { coreSkills, technologies } from "@/data/content";
+import {
+  SiAmazonaws,
+  SiDocker,
+  SiMicrosoftaccess,
+  SiMicrosoftexcel,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOpenai,
+  SiPython,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript
+} from "react-icons/si";
+import type { IconType } from "react-icons";
+
+const iconMap: Record<string, IconType> = {
+  openai: SiOpenai,
+  access: SiMicrosoftaccess,
+  excel: SiMicrosoftexcel,
+  react: SiReact,
+  nextjs: SiNextdotjs,
+  typescript: SiTypescript,
+  nodejs: SiNodedotjs,
+  python: SiPython,
+  mongodb: SiMongodb,
+  tailwind: SiTailwindcss,
+  docker: SiDocker,
+  aws: SiAmazonaws
+};
 
 export function SkillsSection() {
   return (
@@ -34,16 +64,20 @@ export function SkillsSection() {
             ))}
           </div>
         </motion.div>
-        <div className="mt-16 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 py-6">
-          <div className="flex w-[200%] animate-marquee gap-8 whitespace-nowrap">
-            {[...technologies, ...technologies].map((tech, index) => (
-              <span
-                key={`${tech}-${index}`}
-                className="rounded-full border border-slate-300 px-6 py-2 text-sm text-muted"
-              >
-                {tech}
-              </span>
-            ))}
+        <div className="mt-16 overflow-hidden rounded-2xl border border-slate-200 bg-white/80 py-6">
+          <div className="marquee-track flex w-[200%] animate-marquee items-center gap-8 whitespace-nowrap">
+            {[...technologies, ...technologies].map((tech, index) => {
+              const Icon = iconMap[tech.icon];
+              return (
+                <span
+                  key={`${tech.label}-${index}`}
+                  className="inline-flex items-center gap-3 rounded-full border border-slate-200/70 bg-white/70 px-5 py-2 text-sm text-muted shadow-sm"
+                >
+                  {Icon ? <Icon className="text-lg text-accent" aria-hidden /> : null}
+                  {tech.label}
+                </span>
+              );
+            })}
           </div>
         </div>
       </div>

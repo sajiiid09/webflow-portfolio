@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { blogPosts } from "@/data/content";
@@ -49,7 +50,9 @@ export function BlogSlider() {
               className="min-w-[280px] flex-1 snap-center rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:min-w-[360px]"
               whileHover={{ y: -6, boxShadow: "0 20px 60px -30px rgba(15, 23, 42, 0.3)" }}
             >
-              <div className="h-40 w-full rounded-2xl bg-slate-100" aria-hidden />
+              <div className="relative h-40 w-full overflow-hidden rounded-2xl bg-slate-100">
+                <Image src={post.coverImage} alt={post.title} fill className="object-cover" sizes="(max-width: 768px) 90vw, 360px" />
+              </div>
               <h3 className="mt-4 text-xl font-semibold">{post.title}</h3>
               <p className="mt-3 text-sm text-muted">{post.excerpt}</p>
               <a href={post.url} className="mt-6 inline-flex text-sm font-medium underline-offset-4 hover:underline">

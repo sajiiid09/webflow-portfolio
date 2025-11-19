@@ -9,9 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "background": "#f9fafb",
-        "foreground": "#0f172a",
-        "muted": "#64748b"
+        "background": "hsl(var(--background))",
+        "foreground": "hsl(var(--foreground))",
+        "muted": "hsl(var(--muted))",
+        "accent": "hsl(var(--accent))"
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui"]

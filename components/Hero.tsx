@@ -1,10 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Spline from "@splinetool/react-spline";
+
+const SPLINE_SCENE_URL = "https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode";
 
 export function Hero() {
   return (
-    <section id="home" className="min-h-[90vh] flex items-center">
+    <section id="home" className="relative flex min-h-[90vh] items-center overflow-hidden">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 pt-28 md:flex-row md:items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -36,13 +39,15 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
           className="flex-1"
         >
-          <div className="mx-auto h-72 w-72 rounded-[32px] border border-slate-200 bg-white shadow-card" />
-          <p className="mt-4 text-center text-sm text-muted">
-            Placeholder portrait — swap with your favorite shot later.
-          </p>
+          <div className="relative mx-auto h-[420px] w-full max-w-lg rounded-[32px] border border-white/40 bg-white/30 p-2 shadow-[0_40px_120px_-60px_rgba(15,23,42,0.6)] backdrop-blur">
+            <div className="h-full w-full overflow-hidden rounded-[28px] bg-gradient-to-b from-white/70 to-slate-100/80">
+              <Spline scene={SPLINE_SCENE_URL} />
+            </div>
+          </div>
+          <p className="mt-4 text-center text-sm text-muted">A living, animated canvas powered by Spline.</p>
         </motion.div>
       </div>
     </section>
