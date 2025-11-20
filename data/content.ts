@@ -24,30 +24,32 @@ export const technologies = [
   { label: "MongoDB", icon: "mongodb" },
   { label: "Tailwind CSS", icon: "tailwind" },
   { label: "Docker", icon: "docker" },
-  { label: "AWS", icon: "aws" }
+  { label: "AWS", icon: "amazon" },
+  { label: "PHP", icon: "php" },
+  { label: "Laravel", icon: "laravel" } 
 ];
 
 export const experiences = [
   {
-    role: "Creative Developer",
+    role: "Software Developer",
     company: "Freelance / Independent",
     period: "2022 — Present",
     description:
       "Collaborate with founders and design teams to ship immersive web experiences, building performant marketing sites, design systems, and internal dashboards."
   },
   {
+    role: "Sales Executive",
+    company: "Prime Real Estate",
+    period: "Jan 2024 — April 2024",
+    description:
+      "Hands on experience of talking to clients on a sales platform ,host meetups and maintained weekly threshold to meet full client alignment ."
+  },  
+  {
     role: "Full-stack Developer",
     company: "BRAC University Projects",
     period: "2020 — 2022",
     description:
       "Delivered academic and community projects ranging from data-rich dashboards to AI research prototypes, focusing on accessibility and maintainability."
-  },
-  {
-    role: "Developer Advocate",
-    company: "Local Dev Community",
-    period: "2019 — Present",
-    description:
-      "Host meetups, share open-source snippets, and mentor early-career developers on modern JavaScript tooling and cloud-native workflows."
   }
 ];
 
@@ -72,15 +74,26 @@ export const projects = [
     image: "/projects/bdslw60.svg",
     imageAlt: "Placeholder research visualization for Bangla sign language project"
   },
+  
   {
-    title: "My Portfolio Website",
+    title: "dhk.decor: Decoration Website Full Stack",
     description:
-      "A responsive portfolio website showcasing creative projects with smooth animations and modern design.",
-    tags: ["Next.js", "Framer Motion", "Tailwind CSS"],
+      "A responsive E-commerce website showcasing locally made decoration products for client. Integrated Clerk and Inngest ",
+    tags: ["Next.js", "Framer Motion", "Tailwind CSS", "Neondb", "Clerk/Inngest"],
+    liveUrl: "#",
+    codeUrl: "#",
+    image: "/projects/decormade.svg",
+    imageAlt: "Snapshot of the hero page of Decormade"
+  },
+  {
+    title: "Bus Service E-agent: PHP Laravel",
+    description:
+      "A web based Laravel project for reserving bus seat using mobile payment.",
+    tags: ["PHP","Next.js", "Laravel", "Tailwind CSS"],
     liveUrl: "#",
     codeUrl: "#",
     image: "/projects/portfolio.svg",
-    imageAlt: "Stylized mockup of Sajid's portfolio landing page"
+    imageAlt: "Snapshot of Bus Service webpage"
   },
   {
     title: "Llama Sentence Generator",
@@ -92,6 +105,7 @@ export const projects = [
     image: "/projects/llama.svg",
     imageAlt: "Conceptual illustration of llama language model project"
   }
+  
 ];
 
 export const blogPosts = [
