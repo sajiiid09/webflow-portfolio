@@ -49,15 +49,20 @@ export function Header() {
           Sajid Mahmud
         </motion.a>
         <nav className="hidden items-center gap-2 md:flex text-sm">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`nav-link ${activeSection === item.href ? "nav-link-active" : ""}`}
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`nav-link ${isActive ? "nav-link-active" : ""}`}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {isActive && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: "spring", stiffness: 350, damping: 30 }} />}
+                <span className="relative z-10">{item.label}</span>
+              </a>
+            );
+          })}
         </nav>
         <button
           onClick={() => setOpen((prev) => !prev)}
@@ -70,16 +75,21 @@ export function Header() {
       {open && (
         <div className="md:hidden">
           <div className="mx-auto mt-2 flex max-w-6xl flex-col gap-1 rounded-2xl border border-white/10 bg-background/90 px-6 py-4 backdrop-blur">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className={`nav-link ${activeSection === item.href ? "nav-link-active" : ""}`}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={`nav-link ${isActive ? "nav-link-active" : ""}`}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {isActive && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: "spring", stiffness: 350, damping: 30 }} />}
+                  <span className="relative z-10">{item.label}</span>
+                </a>
+              );
+            })}
           </div>
         </div>
       )}
