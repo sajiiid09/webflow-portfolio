@@ -44,7 +44,7 @@ export function BlogSlider() {
           {blogPosts.map((post) => (
             <motion.article
               key={post.title}
-              className="min-w-[280px] flex-1 snap-center rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card backdrop-blur md:min-w-[360px]"
+              className="min-w-[280px] flex-1 snap-center rounded-3xl glass-surface glass-card p-6 md:min-w-[360px]"
               whileHover={{ y: -6, boxShadow: "0 30px 80px -40px rgba(0, 0, 0, 0.7)" }}
             >
               <div className="relative h-40 w-full overflow-hidden rounded-2xl bg-white/5">

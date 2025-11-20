@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const navItems = [
@@ -15,10 +15,31 @@ const navItems = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("#home");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    navItems.forEach((item) => {
+      const section = document.querySelector(item.href);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/70 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2 navbar-glass">
         <motion.a
           href="#home"
           initial={{ opacity: 0, y: -10 }}
@@ -27,16 +48,21 @@ export function Header() {
         >
           Sajid Mahmud
         </motion.a>
-        <nav className="hidden items-center gap-6 md:flex text-sm">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-muted transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
+        <nav className="hidden items-center gap-2 md:flex text-sm">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`nav-link ${isActive ? "nav-link-active" : ""}`}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {isActive && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: "spring", stiffness: 350, damping: 30 }} />}
+                <span className="relative z-10">{item.label}</span>
+              </a>
+            );
+          })}
         </nav>
         <button
           onClick={() => setOpen((prev) => !prev)}
@@ -47,18 +73,23 @@ export function Header() {
         </button>
       </div>
       {open && (
-        <div className="border-t border-white/10 bg-background/90 md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col px-6 py-4">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="py-2 text-muted transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </a>
-            ))}
+        <div className="md:hidden">
+          <div className="mx-auto mt-2 flex max-w-6xl flex-col gap-1 rounded-2xl border border-white/10 bg-background/90 px-6 py-4 backdrop-blur">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={`nav-link ${isActive ? "nav-link-active" : ""}`}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {isActive && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: "spring", stiffness: 350, damping: 30 }} />}
+                  <span className="relative z-10">{item.label}</span>
+                </a>
+              );
+            })}
           </div>
         </div>
       )}

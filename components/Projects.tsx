@@ -29,7 +29,7 @@ export function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               whileHover={{ y: -8, scale: 1.01, boxShadow: "0 30px 80px -40px rgba(0, 0, 0, 0.7)" }}
-              className="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-6 shadow-card backdrop-blur"
+              className="glass-surface glass-card flex flex-col rounded-3xl p-6"
             >
               <div className="relative h-48 w-full overflow-hidden rounded-2xl bg-white/5">
                 <Image

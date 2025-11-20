@@ -34,7 +34,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="flex-1"
         >
-          <p className="text-sm uppercase tracking-[0.5em] text-muted">Software Developer</p>
+          <p className="text-sm uppercase tracking-[0.5em] text-muted">Creative Developer</p>
           <h1 className="mt-6 text-4xl font-semibold leading-tight text-gradient-copper md:text-6xl">Sajid Mahmud</h1>
           <p className="mt-6 max-w-2xl text-lg text-muted">
             Full-stack developer crafting beautiful, functional, user-centered digital experiences from Aftabnagar, Dhaka.
@@ -65,7 +65,7 @@ export function Hero() {
           >
             <Spline scene={SPLINE_SCENE_URL} />
           </motion.div>
-          <p className="mt-4 text-center text-sm text-muted"> Welcome! Buddy</p>
+          <p className="mt-4 text-center text-sm text-muted">Hi! Buddy.</p>
         </div>
       </div>
     </section>
