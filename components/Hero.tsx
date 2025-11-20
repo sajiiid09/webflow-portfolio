@@ -65,7 +65,7 @@ export function Hero() {
           >
             <Spline scene={SPLINE_SCENE_URL} />
           </motion.div>
-          <p className="mt-4 text-center text-sm text-muted">A living, animated canvas powered by Spline.</p>
+          <p className="mt-4 text-center text-sm text-muted">Hi! Buddy.</p>
         </div>
       </div>
     </section>
