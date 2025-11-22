@@ -10,8 +10,10 @@ import { AuroraBackground } from "@/components/ui/aurora-background";
 
 export default function HomePage() {
   return (
-    <AuroraBackground className="bg-black">
-      <main className="min-h-screen w-full ">
+    <div className="relative min-h-screen w-full overflow-hidden bg-black">
+      <AuroraBackground />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/90" />
+      <main className="relative z-10">
         <Header />
         <Hero />
         <About />
@@ -20,10 +22,10 @@ export default function HomePage() {
         <Projects />
         <BlogSlider />
         <Contact />
-        <footer className="border-t border-white/10 py-10 text-center text-sm text-muted">
+        <footer className="border-t border-white/10 py-10 text-center text-sm text-slate-400">
           © {new Date().getFullYear()} Sajid Mahmud. Built with Next.js, Tailwind CSS, and Framer Motion.
         </footer>
       </main>
-    </AuroraBackground>
+    </div>
   );
 }
