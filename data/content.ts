@@ -9,7 +9,11 @@ export const coreSkills = [
   { name: "TypeScript", proficiency: 90 },
   { name: "MS Excel & MS Access", proficiency: 90 },
   { name: "Python", proficiency: 80 },
-  { name: "UI/UX Design", proficiency: 75 }
+  { name: "UI/UX Design", proficiency: 75 },
+  { name: "Laravel", proficiency: 60 },
+  { name: "MySQL", proficiency: 80 },
+  { name: "Problem Solving", proficiency: 70 }
+  
 ];
 
 export const technologies = [
@@ -26,7 +30,9 @@ export const technologies = [
   { label: "Docker", icon: "docker" },
   { label: "AWS", icon: "amazon" },
   { label: "PHP", icon: "php" },
-  { label: "Laravel", icon: "laravel" } 
+  { label: "Laravel", icon: "laravel" }, 
+  { label: "MySQL", icon: "mysql" },
+  { label: "PostgreSQL", icon: "postgresql" }
 ];
 
 export const experiences = [
@@ -92,9 +98,10 @@ export const projects = [
     tags: ["PHP","Next.js", "Laravel", "Tailwind CSS"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/portfolio.svg",
+    image: "/projects/bus-service.svg",
     imageAlt: "Snapshot of Bus Service webpage"
   },
+  
   {
     title: "Llama Sentence Generator",
     description:
@@ -104,6 +111,17 @@ export const projects = [
     codeUrl: "#",
     image: "/projects/llama.svg",
     imageAlt: "Conceptual illustration of llama language model project"
+  },
+
+  {
+    title: "Heart Disease Prediction Using LLM",
+    description:
+      "This project predicts whether a patient is likely to develop heart disease in the next 10 years based on health-related attributes. The motivation stems from the increasing prevalence of cardiovascular diseases and the need for early prediction systems.",
+    tags: ["Prompt Engineering", "Python", "LLM", "Jupyter Notebook", "Real-Time", "AI Integration"],
+    liveUrl: "#",
+    codeUrl: "#",
+    image: "/projects/heart-disease-prediction-using-llm.svg",
+    imageAlt: "Conceptual illustration of Heart Disease Prediction Using LLM project"
   }
   
 ];
