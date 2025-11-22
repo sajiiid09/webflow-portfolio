@@ -15,8 +15,8 @@ export function Projects() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-muted">Selected Work</p>
-          <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
+          <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Selected Work</p>
+          <h2 className="mt-4 text-3xl font-semibold text-slate-50 md:text-4xl">
             A snapshot of recent client, research, and personal projects.
           </h2>
         </motion.div>
@@ -41,9 +41,9 @@ export function Projects() {
                   priority={project.title === "BDTextileHub: E-Commerce Website"}
                 />
               </div>
-              <h3 className="mt-6 text-2xl font-semibold">{project.title}</h3>
-              <p className="mt-3 flex-1 text-muted">{project.description}</p>
-              <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted">
+              <h3 className="mt-6 text-2xl font-semibold text-slate-50">{project.title}</h3>
+              <p className="mt-3 flex-1 text-slate-300">{project.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-400">
                 {project.tags.map((tag) => (
                   <span key={tag} className="rounded-full border border-white/15 px-3 py-1">
                     {tag}
@@ -63,7 +63,7 @@ export function Projects() {
                   href={project.codeUrl}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  className="flex-1 rounded-full border border-white/15 px-4 py-2 text-center text-sm font-medium text-muted"
+                  className="flex-1 rounded-full border border-white/15 px-4 py-2 text-center text-sm font-medium text-slate-300"
                 >
                   Code
                 </motion.a>

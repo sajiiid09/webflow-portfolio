@@ -14,8 +14,8 @@ export function Experience() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-muted">Experience</p>
-          <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
+          <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Experience</p>
+          <h2 className="mt-4 text-3xl font-semibold text-slate-50 md:text-4xl">
             Building for brands, universities, and communities.
           </h2>
         </motion.div>
@@ -31,12 +31,12 @@ export function Experience() {
             >
               <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <h3 className="text-2xl font-semibold">{experience.role}</h3>
-                  <p className="text-muted">{experience.company}</p>
+                  <h3 className="text-2xl font-semibold text-slate-50">{experience.role}</h3>
+                  <p className="text-slate-400">{experience.company}</p>
                 </div>
-                <p className="text-sm uppercase tracking-[0.3em] text-muted">{experience.period}</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">{experience.period}</p>
               </div>
-              <p className="mt-6 text-muted">{experience.description}</p>
+              <p className="mt-6 text-slate-300">{experience.description}</p>
             </motion.div>
           ))}
         </div>

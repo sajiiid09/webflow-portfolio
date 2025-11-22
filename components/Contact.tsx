@@ -49,35 +49,35 @@ export function Contact() {
           className="glass-surface grid gap-12 rounded-3xl p-8 md:grid-cols-2"
         >
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-muted">Let’s Work Together</p>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
+            <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Let’s Work Together</p>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-50 md:text-4xl">
               I’m always interested in new opportunities and exciting projects.
             </h2>
-            <p className="mt-6 text-muted">
+            <p className="mt-6 text-slate-300">
               Whether you have a question or just want to say hi, I’ll try my best to get back to you.
             </p>
-            <div className="mt-8 space-y-4 text-sm text-muted">
-              <p>Email: <a className="underline-offset-4 hover:underline" href="mailto:sajid.m.mahmud.1@gmail.com">sajid.m.mahmud.1@gmail.com</a></p>
-              <p>Phone: <a className="underline-offset-4 hover:underline" href="tel:+8801753289149">+880 1753 289149</a></p>
+            <div className="mt-8 space-y-4 text-sm text-slate-400">
+              <p>Email: <a className="text-white underline-offset-4 hover:underline" href="mailto:sajid.m.mahmud.1@gmail.com">sajid.m.mahmud.1@gmail.com</a></p>
+              <p>Phone: <a className="text-white underline-offset-4 hover:underline" href="tel:+8801753289149">+880 1753 289149</a></p>
               <p>Location: H-39, Rd-1, Sec-2, Block-F, Aftabnagar, Dhaka</p>
             </div>
           </div>
           <div className="flex flex-col gap-6">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="text-sm font-medium">
+                <label htmlFor="name" className="text-sm font-medium text-slate-50">
                   Name
                 </label>
                 <input
                   id="name"
                   name="name"
                   required
-                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-muted"
+                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-slate-500"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="text-sm font-medium">
+                <label htmlFor="email" className="text-sm font-medium text-slate-50">
                   Email
                 </label>
                 <input
@@ -85,12 +85,12 @@ export function Contact() {
                   type="email"
                   name="email"
                   required
-                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-muted"
+                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-slate-500"
                   placeholder="you@email.com"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="text-sm font-medium">
+                <label htmlFor="message" className="text-sm font-medium text-slate-50">
                   Message
                 </label>
                 <textarea
@@ -98,7 +98,7 @@ export function Contact() {
                   name="message"
                   required
                   rows={4}
-                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-muted"
+                  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 placeholder:text-slate-500"
                   placeholder="Tell me about your project"
                 />
               </div>
