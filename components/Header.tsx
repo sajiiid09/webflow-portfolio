@@ -74,7 +74,7 @@ export function Header() {
       </div>
       {open && (
         <div className="md:hidden">
-          <div className="mx-auto mt-2 flex max-w-6xl flex-col gap-1 rounded-2xl border border-white/10 bg-background/90 px-6 py-4 backdrop-blur">
+          <div className="mx-auto mt-2 flex max-w-6xl flex-col gap-1 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 backdrop-blur-xl shadow-lg">
             {navItems.map((item) => {
               const isActive = activeSection === item.href;
               return (
