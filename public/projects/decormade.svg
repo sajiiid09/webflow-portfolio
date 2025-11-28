@@ -1,0 +1,23 @@
+<svg width="100%" height="100%" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#7c2d12;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#b45309;stop-opacity:1" />
+    </linearGradient>
+    <rect width="800" height="400" fill="url(#grad3)" />
+    <g transform="translate(50, 50)" fill="#fff">
+        <text x="0" y="50" font-family="sans-serif" font-size="48" font-weight="bold">dhk.decor</text>
+        <text x="0" y="100" font-family="sans-serif" font-size="24">Local Decoration Products</text>
+        <g transform="translate(0, 150)">
+            <rect x="0" y="0" width="200" height="150" fill="#ffffff33" rx="10" />
+            <text x="20" y="130" font-family="sans-serif" font-size="16">Handcrafted Vase</text>
+        </g>
+        <g transform="translate(220, 150)">
+            <rect x="0" y="0" width="200" height="150" fill="#ffffff33" rx="10" />
+            <text x="20" y="130" font-family="sans-serif" font-size="16">Wall Hanging</text>
+        </g>
+        <g transform="translate(440, 150)">
+            <rect x="0" y="0" width="200" height="150" fill="#ffffff33" rx="10" />
+            <text x="20" y="130" font-family="sans-serif" font-size="16">Table Lamp</text>
+        </g>
+    </g>
+</svg>

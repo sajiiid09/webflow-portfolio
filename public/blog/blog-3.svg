@@ -1,7 +1,26 @@
-<svg width="1000" height="600" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1000" height="600" rx="48" fill="#dcfce7" />
-  <rect x="200" y="160" width="600" height="80" rx="24" fill="#22c55e" opacity="0.8" />
-  <rect x="200" y="270" width="460" height="60" rx="20" fill="#16a34a" opacity="0.5" />
-  <rect x="200" y="350" width="460" height="60" rx="20" fill="#16a34a" opacity="0.5" />
-  <rect x="200" y="430" width="360" height="60" rx="20" fill="#16a34a" opacity="0.5" />
+<svg width="100%" height="100%" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <linearGradient id="grad9" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <rect width="800" height="400" fill="url(#grad9)" />
+    <g transform="translate(50, 100)" fill="#fff">
+        <text x="0" y="50" font-family="sans-serif" font-size="48" font-weight="bold">Optimizing AI on the Edge</text>
+        <text x="0" y="100" font-family="sans-serif" font-size="24">Performance on Constrained Hardware</text>
+        <g transform="translate(100, 150)">
+            <rect x="0" y="0" width="120" height="120" fill="#ffffff33" rx="10" />
+            <text x="30" y="65" font-family="sans-serif" font-size="16">Edge Device</text>
+        </g>
+        <g transform="translate(350, 150)">
+            <rect x="0" y="0" width="120" height="120" fill="#ffffff33" rx="10" />
+            <text x="40" y="65" font-family="sans-serif" font-size="16">AI Model</text>
+        </g>
+        <line x1="230" y1="210" x2="340" y2="210" stroke="#fff" stroke-width="2" marker-end="url(#arrow5)" />
+        <text x="250" y="200" font-family="sans-serif" font-size="14" fill="#fff">Optimization</text>
+    </g>
+    <defs>
+        <marker id="arrow5" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
+        </marker>
+    </defs>
 </svg>

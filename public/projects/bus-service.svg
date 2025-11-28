@@ -1,0 +1,29 @@
+<svg width="100%" height="100%" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#4c1d95;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <rect width="800" height="400" fill="url(#grad4)" />
+    <g transform="translate(50, 50)" fill="#fff">
+        <text x="0" y="50" font-family="sans-serif" font-size="48" font-weight="bold">Bus Service E-agent</text>
+        <text x="0" y="100" font-family="sans-serif" font-size="24">PHP Laravel Seat Reservation</text>
+        <g transform="translate(50, 150)">
+            <rect x="0" y="0" width="200" height="120" fill="#ffffff33" rx="10" />
+            <text x="20" y="30" font-family="sans-serif" font-size="18" font-weight="bold">Select Route</text>
+            <text x="20" y="60" font-family="sans-serif" font-size="14">Dhaka - Chittagong</text>
+            <text x="20" y="80" font-family="sans-serif" font-size="14">Dhaka - Sylhet</text>
+        </g>
+        <g transform="translate(270, 150)">
+            <rect x="0" y="0" width="200" height="120" fill="#ffffff33" rx="10" />
+            <text x="20" y="30" font-family="sans-serif" font-size="18" font-weight="bold">Choose Seat</text>
+            <text x="20" y="60" font-family="sans-serif" font-size="14">A1, A2, B1, B2</text>
+            <text x="20" y="80" font-family="sans-serif" font-size="14">Available: 24</text>
+        </g>
+        <g transform="translate(490, 150)">
+            <rect x="0" y="0" width="200" height="120" fill="#ffffff33" rx="10" />
+            <text x="20" y="30" font-family="sans-serif" font-size="18" font-weight="bold">Payment</text>
+            <text x="20" y="60" font-family="sans-serif" font-size="14">Mobile Payment</text>
+            <text x="20" y="80" font-family="sans-serif" font-size="14">bKash, Nagad</text>
+        </g>
+    </g>
+</svg>
