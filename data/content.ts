@@ -67,18 +67,18 @@ export const projects = [
     tags: ["React", "Node.js", "PostgreSQL", "Stripe", "TypeScript", "Docker", "Google OAuth"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/bdtextilehub.svg",
-    imageAlt: "Screenshot placeholder of BDTextileHub e-commerce dashboard"
+    image: "/projects/bdtextilehub.png",
+    imageAlt: "Screenshot of BDTextileHub e-commerce dashboard"
   },
   {
-    title: "bdslw60_langchain",
+    title: "Multi-Modal Bangla Sign Language (BdSL) Recognition System",
     description:
-      "A hybrid Bangla Sign Language recognition system combining vision-based models with LLM-powered sentence generation.",
-    tags: ["Python", "TensorFlow", "LLM", "Jupyter Notebook", "Real-Time", "AI Integration"],
+      "provides a complete scaffold for building a real-time offline BdSL recognition pipeline. The system captures RGB webcam videos, extracts MediaPipe Holistic landmarks, trains multi-stream neural encoders, and deploys a real-time demo with simultaneous sign (60 classes) and facial grammar (3 classes) predictions",
+    tags: ["Python", "TensorFlow", "Jupyter Notebook", "Real-Time", "AI Integration"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/bdslw60.svg",
-    imageAlt: "Placeholder research visualization for Bangla sign language project"
+    image: "/projects/bdsl.png",
+    imageAlt: "Screenshot of Bangla sign language project"
   },
   
   {
@@ -88,8 +88,8 @@ export const projects = [
     tags: ["Next.js", "Framer Motion", "Tailwind CSS", "Neondb", "Clerk/Inngest"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/decormade.svg",
-    imageAlt: "Snapshot of the hero page of Decormade"
+    image: "/projects/decormade.png",
+    imageAlt: "Screenshot of Decormade"
   },
   {
     title: "Bus Service E-agent: PHP Laravel",
@@ -98,19 +98,19 @@ export const projects = [
     tags: ["PHP","Next.js", "Laravel", "Tailwind CSS"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/bus-service.svg",
-    imageAlt: "Snapshot of Bus Service webpage"
+    image: "/projects/bus.png",
+    imageAlt: "Screenshot of Bus Service webpage"
   },
   
   {
-    title: "Llama Sentence Generator",
+    title: "LuxEstate : Real Estate Website",
     description:
-      "A lightweight Python app that uses a locally installed LLaMA model to generate meaningful sentences via prompt engineering.",
-    tags: ["Prompt Engineering", "HTML", "Tailwind CSS", "Flask"],
+      "LuxEstate is a full-stack real-estate booking platform built with Django REST Framework and Nextjs, it features Property browsing, property detail pages, bookings, payment simulation, user accounts",
+    tags: ["Django REST Framework", "Next.js", "React", "Tailwind CSS", "Stripe", "TypeScript", "Docker", "PostgreSQL"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/llama.svg",
-    imageAlt: "Conceptual illustration of llama language model project"
+    image: "/projects/luxestate.png",
+    imageAlt: "Screenshot of LuxEstate"
   },
 
   {
@@ -120,8 +120,8 @@ export const projects = [
     tags: ["Prompt Engineering", "Python", "LLM", "Jupyter Notebook", "Real-Time", "AI Integration"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/heart-disease-prediction-using-llm.svg",
-    imageAlt: "Conceptual illustration of Heart Disease Prediction Using LLM project"
+    image: "/projects/heart.png",
+    imageAlt: "Screenshot of Heart Disease Prediction Using LLM project"
   }
   
 ];
