@@ -45,6 +45,17 @@ textarea {
   outline-offset: 3px;
 }
 
+@media (pointer: fine) {
+  html[data-custom-cursor="enabled"] body {
+    cursor: none;
+  }
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
 /* Noise texture overlay */
 body::before {
   content: "";
