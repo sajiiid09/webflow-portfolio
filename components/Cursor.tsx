@@ -89,7 +89,7 @@ export function Cursor() {
   return (
     <>
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-50 h-3 w-3 rounded-full bg-accent mix-blend-difference"
+        className="pointer-events-none fixed left-0 top-0 z-50 h-3 w-3 rounded-full bg-accent mix-blend-difference cursor-animated"
         style={{
           x: cursorX,
           y: cursorY,
@@ -103,7 +103,7 @@ export function Cursor() {
         transition={{ type: "spring", ...springConfig }}
       />
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-40 h-8 w-8 rounded-full border border-accent mix-blend-difference"
+        className="pointer-events-none fixed left-0 top-0 z-40 h-8 w-8 rounded-full border border-accent mix-blend-difference cursor-animated"
         style={{
           x: cursorX,
           y: cursorY,
