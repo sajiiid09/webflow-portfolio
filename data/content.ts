@@ -61,15 +61,16 @@ export const experiences = [
 
 export const projects = [
   {
-    title: "BDTextileHub: E-Commerce Website",
+    title: "LuxEstate : Real Estate Website",
     description:
-      "A full-stack e-commerce platform with user authentication, product management, and real-time inventory tracking.",
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe", "TypeScript", "Docker", "Google OAuth"],
+      "LuxEstate is a full-stack real-estate booking platform built with Django REST Framework and Nextjs, it features Property browsing, property detail pages, bookings, payment simulation, user accounts",
+    tags: ["Django REST Framework", "Next.js", "React", "Tailwind CSS", "Stripe", "TypeScript", "Docker", "PostgreSQL"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/bdtextilehub.png",
-    imageAlt: "Screenshot of BDTextileHub e-commerce dashboard"
+    image: "/projects/luxestate.png",
+    imageAlt: "Screenshot of LuxEstate"
   },
+ 
   {
     title: "Multi-Modal Bangla Sign Language (BdSL) Recognition System",
     description:
@@ -101,16 +102,16 @@ export const projects = [
     image: "/projects/bus.png",
     imageAlt: "Screenshot of Bus Service webpage"
   },
-  
-  {
-    title: "LuxEstate : Real Estate Website",
+
+   {
+    title: "BDTextileHub: E-Commerce Website",
     description:
-      "LuxEstate is a full-stack real-estate booking platform built with Django REST Framework and Nextjs, it features Property browsing, property detail pages, bookings, payment simulation, user accounts",
-    tags: ["Django REST Framework", "Next.js", "React", "Tailwind CSS", "Stripe", "TypeScript", "Docker", "PostgreSQL"],
+      "A full-stack e-commerce platform with user authentication, product management, and real-time inventory tracking.",
+    tags: ["React", "Node.js", "PostgreSQL", "Stripe", "TypeScript", "Docker", "Google OAuth"],
     liveUrl: "#",
     codeUrl: "#",
-    image: "/projects/luxestate.png",
-    imageAlt: "Screenshot of LuxEstate"
+    image: "/projects/bdtextilehub.png",
+    imageAlt: "Screenshot of BDTextileHub e-commerce dashboard"
   },
 
   {
