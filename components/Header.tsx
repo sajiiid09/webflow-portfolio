@@ -1,37 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" }
-];
+const sections = ["home", "about", "skills", "experience", "projects", "blog", "contact"] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("#home");
+  const [activeSection, setActiveSection] = useState<string>("home");
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
-          }
-        });
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry?.target?.id) {
+          setActiveSection(visibleEntry.target.id);
+        }
       },
-      { threshold: 0.35 }
+      { threshold: 0.4 }
     );
 
-    navItems.forEach((item) => {
-      const section = document.querySelector(item.href);
-      if (section) observer.observe(section);
+    observerRef.current = observer;
+
+    sections.forEach((sectionId) => {
+      const sectionEl = document.getElementById(sectionId);
+      if (sectionEl) observer.observe(sectionEl);
     });
 
     return () => observer.disconnect();
@@ -48,25 +45,33 @@ export function Header() {
         >
           Sajid Mahmud
         </motion.a>
-        <nav className="hidden items-center gap-2 md:flex text-sm">
-          {navItems.map((item) => {
-            const isActive = activeSection === item.href;
+        <nav className="relative hidden items-center gap-2 text-sm md:flex">
+          {sections.map((sectionId) => {
+            const label = sectionId === "home" ? "Home" : sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+            const isActive = activeSection === sectionId;
             return (
               <a
-                key={item.href}
-                href={item.href}
+                key={sectionId}
+                href={`#${sectionId}`}
+                data-section={sectionId}
                 className={`nav-link ${isActive ? "nav-link-active" : ""}`}
                 aria-current={isActive ? "page" : undefined}
               >
-                {isActive && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: "spring", stiffness: 350, damping: 30 }} />}
-                <span className="relative z-10">{item.label}</span>
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-pill"
+                    className="nav-pill"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{label}</span>
               </a>
             );
           })}
         </nav>
         <button
           onClick={() => setOpen((prev) => !prev)}
-          className="rounded-full border border-white/20 px-3 py-1 text-sm font-medium text-foreground md:hidden"
+          className="rounded-full border border-white/20 px-3 py-1 text-sm font-medium text-foreground md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           aria-label="Toggle navigation"
         >
           Menu
@@ -75,18 +80,19 @@ export function Header() {
       {open && (
         <div className="md:hidden">
           <div className="mx-auto mt-2 flex max-w-6xl flex-col gap-1 rounded-2xl border border-white/20 bg-white/10 px-6 py-4 backdrop-blur-xl shadow-lg">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href;
+            {sections.map((sectionId) => {
+              const label = sectionId === "home" ? "Home" : sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+              const isActive = activeSection === sectionId;
               return (
                 <a
-                  key={item.href}
-                  href={item.href}
+                  key={sectionId}
+                  href={`#${sectionId}`}
                   onClick={() => setOpen(false)}
                   className={`nav-link ${isActive ? "nav-link-active" : ""}`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {isActive && <motion.span layoutId="nav-pill" className="nav-pill" transition={{ type: "spring", stiffness: 350, damping: 30 }} />}
-                  <span className="relative z-10">{item.label}</span>
+                  <span className="relative z-10">{label}</span>
                 </a>
               );
             })}

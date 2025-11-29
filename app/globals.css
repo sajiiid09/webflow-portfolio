@@ -26,7 +26,23 @@ body {
   background-color: hsl(var(--background));
   position: relative;
   min-height: 100vh;
-  @apply text-foreground font-sans antialiased;
+  @apply text-slate-200 font-sans antialiased;
+}
+
+@media (pointer: fine) {
+  html[data-custom-cursor="enabled"] body {
+    cursor: none;
+  }
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
+:where(a, button, input, textarea):focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 3px;
 }
 
 /* Noise texture overlay */
@@ -61,6 +77,17 @@ section {
 
 .marquee-track {
   will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-infinite,
+  .scroll-indicator,
+  .cursor-animated,
+  .section-fade-in {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
 }
 
 .spline-hero-wrapper {
