@@ -1,10 +1,12 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Spline from "@splinetool/react-spline";
 
 const SPLINE_SCENE_URL = "https://prod.spline.design/dpBCmXsVUJ-gT49T/scene.splinecode";
+
+const Spline = dynamic(() => import("@splinetool/react-spline"), { ssr: false });
 
 export function Hero() {
   const [scrollProgress, setScrollProgress] = useState(0);
