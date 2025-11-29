@@ -146,7 +146,7 @@ export function Contact() {
                 <span>Download CV</span>
               </a>
               <a
-                href="https://github.com/USERNAME"
+                href="https://github.com/sajiiid09"
                 target="_blank"
                 rel="noreferrer"
                 className="glass-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
@@ -156,7 +156,7 @@ export function Contact() {
                 <span>GitHub</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/USERNAME"
+                href="https://www.linkedin.com/in/sajid-mahmud-159513113"
                 target="_blank"
                 rel="noreferrer"
                 className="glass-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
@@ -166,7 +166,7 @@ export function Contact() {
                 <span>LinkedIn</span>
               </a>
               <a
-                href="https://facebook.com/USERNAME"
+                href="https://facebook.com/damnbuay"
                 target="_blank"
                 rel="noreferrer"
                 className="glass-button focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
