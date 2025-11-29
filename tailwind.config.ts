@@ -63,15 +63,16 @@ const config: Config = {
   		},
   		      animation: {
   		        marquee: 'marquee 30s linear infinite',
+  		        'marquee-infinite': 'marquee 30s linear infinite',
   		        aurora: 'aurora 60s linear infinite',
   		      },
   		      keyframes: {
   		        marquee: {
   		          '0%': {
-  		            transform: 'translateX(0)'
+  		            transform: 'translateX(0%)'
   		          },
   		          '100%': {
-  		            transform: 'translateX(-50%)'
+  		            transform: 'translateX(-100%)'
   		          }
   		        },
   		        aurora: {
