@@ -4,7 +4,7 @@ import "./globals.css";
 import { Cursor } from "@/components/Cursor";
 
 export const metadata: Metadata = {
-  title: "Sajid Mahmud | Web Engineer",
+  title: "Sajid's Portfolio",
   description: "Web Engineer portfolio for Sajid Mahmud built with Next.js, Tailwind CSS, and Framer Motion.",
 };
 
