@@ -65,8 +65,8 @@ export const projects = [
     description:
       "LuxEstate is a full-stack real-estate booking platform built with Django REST Framework and Nextjs, it features Property browsing, property detail pages, bookings, payment simulation, user accounts",
     tags: ["Django REST Framework", "Next.js", "React", "Tailwind CSS", "Stripe", "TypeScript", "Docker", "PostgreSQL"],
-    liveUrl: "#",
-    codeUrl: "#",
+    liveUrl: "https://github.com/sajiiid09/lux-estate",
+    codeUrl: "https://github.com/sajiiid09/lux-estate",
     image: "/projects/luxestate.png",
     imageAlt: "Screenshot of LuxEstate"
   },
@@ -76,8 +76,8 @@ export const projects = [
     description:
       "provides a complete scaffold for building a real-time offline BdSL recognition pipeline. The system captures RGB webcam videos, extracts MediaPipe Holistic landmarks, trains multi-stream neural encoders, and deploys a real-time demo with simultaneous sign (60 classes) and facial grammar (3 classes) predictions",
     tags: ["Python", "TensorFlow", "Jupyter Notebook", "Real-Time", "AI Integration"],
-    liveUrl: "#",
-    codeUrl: "#",
+    liveUrl: "https://github.com/sajiiid09/Emotion-Integrated-Sign-Interpretation-model",
+    codeUrl: "https://github.com/sajiiid09/Emotion-Integrated-Sign-Interpretation-model",
     image: "/projects/bdsl.png",
     imageAlt: "Screenshot of Bangla sign language project"
   },
@@ -87,8 +87,8 @@ export const projects = [
     description:
       "A responsive E-commerce website showcasing locally made decoration products for client. Integrated Clerk and Inngest ",
     tags: ["Next.js", "Framer Motion", "Tailwind CSS", "Neondb", "Clerk/Inngest"],
-    liveUrl: "#",
-    codeUrl: "#",
+    liveUrl: "https://github.com/sajiiid09/decormade_backend",
+    codeUrl: "https://github.com/sajiiid09/decormade_backend",
     image: "/projects/decormade.png",
     imageAlt: "Screenshot of Decormade"
   },
@@ -97,8 +97,8 @@ export const projects = [
     description:
       "A web based Laravel project for reserving bus seat using mobile payment.",
     tags: ["PHP","Next.js", "Laravel", "Tailwind CSS"],
-    liveUrl: "#",
-    codeUrl: "#",
+    liveUrl: "https://github.com/sajiiid09/Bus-Ticket-Agent",
+    codeUrl: "https://github.com/sajiiid09/Bus-Ticket-Agent",
     image: "/projects/bus.png",
     imageAlt: "Screenshot of Bus Service webpage"
   },
@@ -108,8 +108,8 @@ export const projects = [
     description:
       "A full-stack e-commerce platform with user authentication, product management, and real-time inventory tracking.",
     tags: ["React", "Node.js", "PostgreSQL", "Stripe", "TypeScript", "Docker", "Google OAuth"],
-    liveUrl: "#",
-    codeUrl: "#",
+    liveUrl: "https://www.bdtextilehub.com/",
+    codeUrl: "https://github.com/sajiiid09/BDTextileHub-E-commerce-website",
     image: "/projects/bdtextilehub.png",
     imageAlt: "Screenshot of BDTextileHub e-commerce dashboard"
   },
@@ -119,8 +119,8 @@ export const projects = [
     description:
       "This project predicts whether a patient is likely to develop heart disease in the next 10 years based on health-related attributes. The motivation stems from the increasing prevalence of cardiovascular diseases and the need for early prediction systems.",
     tags: ["Prompt Engineering", "Python", "LLM", "Jupyter Notebook", "Real-Time", "AI Integration"],
-    liveUrl: "#",
-    codeUrl: "#",
+    liveUrl: "https://github.com/sajiiid09/heart-disease-prediction-using-LLM",
+    codeUrl: "https://github.com/sajiiid09/heart-disease-prediction-using-LLM",
     image: "/projects/heart.png",
     imageAlt: "Screenshot of Heart Disease Prediction Using LLM project"
   }
