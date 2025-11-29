@@ -39,10 +39,10 @@ export function Hero() {
           <p className="text-sm uppercase tracking-[0.5em] text-slate-300">Web Application Developer</p>
           <h1 className="mt-6 text-4xl font-semibold leading-tight text-gradient-copper md:text-6xl">Sajid Mahmud</h1>
           <p className="mt-6 max-w-2xl text-lg text-slate-200">
-            Full-stack developer crafting beautiful, functional, user-centered digital experiences from Aftabnagar, Dhaka.
+            Full-stack developer crafting beautiful, functional, user-centered digital experiences.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4 text-sm text-slate-300">
-            <span>Aftabnagar, Dhaka, Bangladesh</span>
+            <span>Dhaka, Bangladesh</span>
             <span className="h-1 w-1 rounded-full bg-slate-400" />
             <a
               href="mailto:sajid.m.mahmud.1@gmail.com"
