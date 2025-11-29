@@ -12,7 +12,5 @@ A premium single-page portfolio for Sajid Mahmud built with **Next.js 14**, **Re
    ```bash
    npm run dev
    ```
-3. Visit <http://localhost:3000> to preview the site with hot reload.
+3. Visit <https://sajids-portfolio.vercel.app/> 
 
-Live URL :
-Snapshot: 
