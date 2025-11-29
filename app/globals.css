@@ -63,6 +63,13 @@ section {
   will-change: transform;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-infinite {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
 .spline-hero-wrapper {
   position: relative;
   width: 100%;
