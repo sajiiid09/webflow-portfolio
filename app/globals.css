@@ -29,6 +29,17 @@ body {
   @apply text-foreground font-sans antialiased;
 }
 
+@media (pointer: fine) {
+  html[data-custom-cursor="enabled"] body {
+    cursor: none;
+  }
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
 /* Noise texture overlay */
 body::before {
   content: "";
@@ -61,6 +72,13 @@ section {
 
 .marquee-track {
   will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-infinite {
+    animation: none;
+    transform: translateX(0);
+  }
 }
 
 .spline-hero-wrapper {

@@ -98,20 +98,42 @@ export function SkillsSection() {
           </div>
         </motion.div>
 
-        <div className="mt-16 overflow-hidden rounded-2xl border border-white/10 bg-white/5 py-6 backdrop-blur-sm">
-          <div className="marquee-track flex w-[200%] animate-marquee items-center gap-8 whitespace-nowrap">
-            {[...technologies, ...technologies].map((tech, index) => {
-              const Icon = iconMap[tech.icon];
-              return (
-                <span
-                  key={`${tech.label}-${index}`}
-                  className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-slate-300 shadow-sm backdrop-blur transition-colors hover:bg-white/10 hover:text-white"
-                >
-                  {Icon ? <Icon className="text-lg text-accent" aria-hidden /> : null}
-                  {tech.label}
-                </span>
-              );
-            })}
+        <div className="mt-24 overflow-hidden border-y border-white/10 bg-white/5/ bg-opacity-5 py-8">
+          <div className="relative flex w-full overflow-hidden">
+            {/* First Track */}
+            <div className="flex min-w-full shrink-0 animate-marquee-infinite items-center justify-around gap-8 pr-8">
+              {technologies.map((tech, index) => {
+                const Icon = iconMap[tech.icon];
+                return (
+                  <div
+                    key={`${tech.label}-${index}`}
+                    className="flex items-center gap-2 text-slate-400 transition-colors duration-300 hover:text-accent"
+                  >
+                    {Icon ? <Icon className="text-3xl" aria-hidden /> : null}
+                    <span className="text-xl font-bold">{tech.label}</span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Second Track for seamless loop */}
+            <div
+              aria-hidden="true"
+              className="flex min-w-full shrink-0 animate-marquee-infinite items-center justify-around gap-8 pr-8"
+            >
+              {technologies.map((tech, index) => {
+                const Icon = iconMap[tech.icon];
+                return (
+                  <div
+                    key={`${tech.label}-${index}-duplicate`}
+                    className="flex items-center gap-2 text-slate-400 transition-colors duration-300 hover:text-accent"
+                  >
+                    {Icon ? <Icon className="text-3xl" aria-hidden /> : null}
+                    <span className="text-xl font-bold">{tech.label}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
