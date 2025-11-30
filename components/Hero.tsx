@@ -1,39 +1,34 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const SPLINE_SCENE_URL = "https://prod.spline.design/dpBCmXsVUJ-gT49T/scene.splinecode";
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), { ssr: false });
 
 export function Hero() {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const maxScroll = window.innerHeight;
-      const progress = Math.min(window.scrollY / maxScroll, 1);
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const translateY = scrollProgress * 18;
-  const rotate = scrollProgress * 3;
-  const scale = 1 - scrollProgress * 0.03;
+  const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [0, 18]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 3]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
 
   return (
-    <section id="home" className="relative flex min-h-[90vh] items-center overflow-hidden py-24 md:py-32">
+    <section
+      id="home"
+      ref={containerRef}
+      className="relative flex min-h-[90vh] items-center overflow-hidden py-24 md:py-32"
+    >
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 pt-10 md:flex-row md:items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          style={{ opacity: textOpacity }}
           className="flex-1 section-fade-in"
         >
           <p className="text-sm uppercase tracking-[0.5em] text-slate-300">Web Application Developer</p>
@@ -72,9 +67,9 @@ export function Hero() {
         <div className="flex-1">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.15 }}
-            style={{ translateY, rotateX: rotate, rotateY: rotate }}
+            style={{ translateY, rotateX: rotate, rotateY: rotate, scale }}
             className="spline-hero-wrapper mx-auto max-w-xl section-fade-in"
           >
             <Spline scene={SPLINE_SCENE_URL} />
