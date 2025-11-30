@@ -1,15 +1,28 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useRef } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const SPLINE_SCENE_URL = "https://prod.spline.design/dpBCmXsVUJ-gT49T/scene.splinecode";
 
-const Spline = dynamic(() => import("@splinetool/react-spline"), { ssr: false });
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  ssr: false,
+  loading: () => <div className="h-full w-full animate-pulse bg-white/5" />
+});
 
 export function Hero() {
   const containerRef = useRef<HTMLElement | null>(null);
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
 
   const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
@@ -72,7 +85,19 @@ export function Hero() {
             style={{ translateY, rotateX: rotate, rotateY: rotate, scale }}
             className="spline-hero-wrapper mx-auto max-w-xl section-fade-in"
           >
-            <Spline scene={SPLINE_SCENE_URL} />
+            {!isMobile ? (
+              <Spline scene={SPLINE_SCENE_URL} />
+            ) : (
+              <div className="relative h-full w-full">
+                <Image
+                  src="/projects/heart.png"
+                  alt="Hero Visual"
+                  fill
+                  priority
+                  className="object-contain p-8 opacity-80"
+                />
+              </div>
+            )}
           </motion.div>
           <p className="mt-4 text-center text-sm text-slate-500">Hi! Buddy.</p>
         </div>

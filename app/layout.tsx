@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Cursor } from "@/components/Cursor";
+import { LenisProvider } from "@/components/LenisProvider";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
@@ -19,8 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Cursor />
-        {children}
+        <LenisProvider>
+          <Cursor />
+          {children}
+          <Analytics />
+        </LenisProvider>
       </body>
     </html>
   );

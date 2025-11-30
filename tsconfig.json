@@ -27,6 +27,12 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "lenis": [
+        "./lib/lenis/index.ts"
+      ],
+      "lenis/*": [
+        "./lib/lenis/*"
       ]
     }
   },
