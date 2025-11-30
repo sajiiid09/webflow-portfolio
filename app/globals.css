@@ -56,14 +56,22 @@ textarea {
   cursor: text;
 }
 
-/* Noise texture overlay */
+/* Replaced heavy SVG turbulence noise with a lightweight static grain for GPU savings; adjust opacity if you want a stronger effect. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.03;
   z-index: 50;
+  mix-blend-mode: normal;
+}
+
+@media (min-width: 768px) {
+  body::before {
+    mix-blend-mode: overlay;
+  }
 }
 
 a {
@@ -114,8 +122,14 @@ section {
     radial-gradient(circle at 25% 20%, rgba(217, 108, 44, 0.16), transparent 40%),
     linear-gradient(160deg, rgba(0, 0, 0, 0.76), rgba(5, 10, 20, 0.94));
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(10px);
   will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .spline-hero-wrapper {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 .spline-hero-wrapper canvas {
@@ -133,11 +147,9 @@ section {
 
 /* Glassmorphism utilities */
 .glass-surface {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(20, 20, 30, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
   border-radius: 18px;
 }
 
@@ -151,11 +163,9 @@ section {
 }
 
 .navbar-glass {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(20, 20, 30, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
   border-radius: 999px;
 }
 
@@ -181,10 +191,8 @@ section {
   position: absolute;
   inset: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 }
 
 .glass-button {
@@ -193,16 +201,41 @@ section {
   gap: 0.5rem;
   padding: 0.65rem 1.1rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(20, 20, 30, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: #f7f7f7;
   font-size: 0.9rem;
   cursor: pointer;
   text-decoration: none;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
   transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+@media (min-width: 768px) {
+  .glass-surface {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  }
+
+  .navbar-glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  }
+
+  .glass-button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .nav-pill {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 .glass-button:hover {

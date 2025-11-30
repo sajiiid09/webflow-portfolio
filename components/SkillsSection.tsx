@@ -51,41 +51,42 @@ export function SkillsSection() {
           className="section-fade-in"
         >
           <div className="mt-2 grid gap-8 md:grid-cols-2">
-            {coreSkills.map((skill, index) => (
+            {coreSkills.map((skill) => (
               <div key={skill.name} className="group">
                 <div className="mb-3 flex items-center justify-between text-sm font-medium">
                   <span className="text-slate-200 transition-colors group-hover:text-white">{skill.name}</span>
                   <span className="font-mono text-xs text-accent">{skill.proficiency}%</span>
                 </div>
 
-                <div className="flex h-3 gap-1.5">
-                  {Array.from({ length: 10 }).map((_, i) => {
-                    const isActive = i < Math.round(skill.proficiency / 10);
-
-                    return (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scaleY: 0 }}
-                        whileInView={{
-                          opacity: 1,
-                          scaleY: 1,
-                          backgroundColor: isActive ? "hsl(var(--accent))" : "rgba(255,255,255,0.05)"
-                        }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.4,
-                          delay: index * 0.1 + i * 0.05,
-                          type: "spring",
-                          stiffness: 300
-                        }}
-                        className={`flex-1 rounded-[2px] transition-all duration-500 ${
-                          isActive
-                            ? "shadow-[0_0_10px_-2px_hsl(var(--accent))] brightness-110"
-                            : "border border-white/5"
-                        }`}
-                      />
-                    );
-                  })}
+                <div
+                  className="relative h-3 w-full overflow-hidden rounded-sm bg-white/5"
+                  role="progressbar"
+                  aria-valuenow={skill.proficiency}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                >
+                  <div
+                    className="absolute inset-0 h-full w-full opacity-10"
+                    style={{
+                      backgroundImage:
+                        "repeating-linear-gradient(90deg, transparent, transparent 2px, white 2px, white 4px)"
+                    }}
+                  />
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.proficiency}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="relative h-full bg-accent"
+                  >
+                    <div
+                      className="absolute inset-0 h-full w-full opacity-30"
+                      style={{
+                        backgroundImage:
+                          "repeating-linear-gradient(90deg, transparent, transparent 4px, black 4px, black 5px)"
+                      }}
+                    />
+                  </motion.div>
                 </div>
               </div>
             ))}
