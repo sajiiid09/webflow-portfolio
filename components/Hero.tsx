@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -83,21 +82,9 @@ export function Hero() {
             style={{ y: translateY }}
             className="spline-hero-wrapper mx-auto max-w-xl section-fade-in"
           >
-            {!isMobile ? (
-              <Spline scene={SPLINE_SCENE_URL} />
-            ) : (
-              <div className="relative h-full w-full">
-                <Image
-                  src="/projects/heart.png"
-                  alt="Hero Visual"
-                  fill
-                  priority
-                  className="object-contain p-8 opacity-80"
-                />
-              </div>
-            )}
+            {!isMobile ? <Spline scene={SPLINE_SCENE_URL} /> : null}
           </motion.div>
-          <p className="mt-4 text-center text-sm text-slate-500">Hi! Buddy.</p>
+          {!isMobile && <p className="mt-4 text-center text-sm text-slate-500">Hi! Buddy.</p>}
         </div>
       </div>
     </section>

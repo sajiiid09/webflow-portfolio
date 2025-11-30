@@ -10,11 +10,14 @@ export function Cursor() {
   const [isHoveringInteractive, setIsHoveringInteractive] = useState(false);
   const [isTextInputFocused, setIsTextInputFocused] = useState(false);
 
+  // Raw mouse values (instant)
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const springConfig = { damping: 25, stiffness: 700 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
+
+  // Spring values for ring (trailing effect)
+  const springConfig = { damping: 25, stiffness: 300 };
+  const ringX = useSpring(mouseX, springConfig);
+  const ringY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -66,7 +69,6 @@ export function Cursor() {
 
   useEffect(() => {
     if (typeof document === "undefined") return;
-
     const root = document.documentElement;
 
     if (enabled && !isTextInputFocused) {
@@ -80,19 +82,18 @@ export function Cursor() {
     };
   }, [enabled, isTextInputFocused]);
 
-  if (!enabled) {
-    return null;
-  }
+  if (!enabled) return null;
 
   const hidden = isTextInputFocused;
 
   return (
     <>
+      {/* INNER DOT: instant follow */}
       <motion.div
         className="pointer-events-none fixed left-0 top-0 z-50 h-3 w-3 rounded-full bg-accent mix-blend-difference cursor-animated"
         style={{
-          x: cursorX,
-          y: cursorY,
+          x: mouseX,
+          y: mouseY,
           translateX: "-50%",
           translateY: "-50%",
         }}
@@ -100,13 +101,15 @@ export function Cursor() {
           scale: isHoveringInteractive ? 2 : 1,
           opacity: hidden ? 0 : 1,
         }}
-        transition={{ type: "spring", ...springConfig }}
+        transition={{ duration: 0.1 }}
       />
+
+      {/* OUTER RING: trailing effect */}
       <motion.div
         className="pointer-events-none fixed left-0 top-0 z-40 h-8 w-8 rounded-full border border-accent mix-blend-difference cursor-animated"
         style={{
-          x: cursorX,
-          y: cursorY,
+          x: ringX,
+          y: ringY,
           translateX: "-50%",
           translateY: "-50%",
         }}
