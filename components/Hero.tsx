@@ -25,10 +25,8 @@ export function Hero() {
 
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
 
-  const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
-  const translateY = useTransform(scrollYProgress, [0, 1], [0, 18]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 3]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [0, 50]);
 
   return (
     <section
@@ -82,7 +80,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9, delay: 0.15 }}
-            style={{ translateY, rotateX: rotate, rotateY: rotate, scale }}
+            style={{ y: translateY }}
             className="spline-hero-wrapper mx-auto max-w-xl section-fade-in"
           >
             {!isMobile ? (
