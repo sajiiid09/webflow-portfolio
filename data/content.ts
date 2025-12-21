@@ -37,9 +37,9 @@ export const technologies = [
 
 export const experiences = [
   {
-    role: "Software Developer",
-    company: "Freelance / Independent",
-    period: "2022 — Present",
+    role: "Full Stack Web Application Engineer",
+    company: "RACO AI",
+    period: "2025 — Present",
     description:
       "Collaborate with founders and design teams to ship immersive web experiences, building performant marketing sites, design systems, and internal dashboards."
   },
@@ -51,7 +51,7 @@ export const experiences = [
       "Hands on experience of talking to clients on a sales platform ,host meetups and maintained weekly threshold to meet full client alignment ."
   },  
   {
-    role: "Full-stack Developer",
+    role: "Frontend Developer",
     company: "BRAC University Projects",
     period: "2020 — 2022",
     description:
